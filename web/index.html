@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Reservas</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+<body>
+<div class="container">
+
+  <aside class="sidebar">
+    <h2>Hotel Reservas</h2>
+    <button onclick="showPage('quartos')">
+      <img src="../web/quarto.png" alt="Quarto" class="icon"/> Quartos 
+    </button>
+    
+    <button onclick="listarTodasReservas()">
+      <img src="../web/reservas.png" alt="Reservas" class="icon"/> Reservas
+    </button>
+    <button onclick="showPage('sobre')">
+      <img src="../web/info.png" alt="Sobre" class="icon"/> Sobre
+    </button>
+  </aside>
+
+  <main class="content">
+
+    <section id="quartos" class="page active">
+      <div class="header">
+        <h2>Quartos Cadastrados</h2>
+        <button onclick="showPage('cadastroQuarto')" class="primary">+ Novo Quarto</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nº Quarto</th>
+            <th>Tipo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="listaQuartos"></tbody>
+      </table>
+    </section>
+
+    <section id="cadastroQuarto" class="page">
+      <h2>Cadastro de Quarto</h2>
+      <input id="numeroQuarto" placeholder="Número do quarto"/>
+      <select id="tipoQuarto">
+        <option value="">Selecione o tipo</option>
+        <option>Standard</option>
+        <option>Luxo</option>
+        <option>Suíte</option>
+      </select>
+      <button onclick="adicionarQuarto()" class="primary">Cadastrar</button>
+      <button class="sec" onclick="showPage('quartos')">Voltar</button>
+    </section>
+    
+    <section id="reservas" class="page">
+      <div id="listaReservas">
+        <p>Selecione um quarto na aba anterior para ver ou gerenciar as suas reservas.</p>
+      </div>
+    </section>
+
+    <!-- CADASTRO RESERVA -->
+    <section id="cadastroReserva" class="page">
+      <h2>Cadastro de Reserva</h2>
+      <input id="nomeHospede" placeholder="Nome do hóspede"/>
+      <input id="dataEntrada" type="date"/>
+      <input id="dataSaida" type="date"/>
+      <button onclick="adicionarReserva()" class="primary">Cadastrar Reserva</button>
+      <button class="sec" onclick="showPage('reservas')">Voltar</button>
+    </section>
+
+    <section id="sobre" class="page">
+      <h2>Sobre</h2>
+      <p>Sistema de Hotel - Projeto Full Stack (frontend)</p>
+    </section>
+
+  </main>
+</div>
+
+<div id="modal" class="modal">
+  <div class="modal-box">
+    <p id="modalText"></p>
+    <button onclick="confirmDelete()" class="danger">
+      <img src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png" alt="Excluir" class="icon"/> Excluir
+    </button>
+    <button onclick="closeModal()" class="sec">Cancelar</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Quartos {
+  id Int @id @default(autoincrement())
+
+  numero String
+  tipo String
+
+  reservas Reservas[]
+}
+
+model Reservas {
+  id Int @id @default(autoincrement())
+
+  hospede String
+
+  data_entrada DateTime
+  data_saida DateTime
+
+  quartoId Int
+
+  quarto Quartos @relation(fields: [quartoId], references: [id], onDelete: Cascade)
+}
