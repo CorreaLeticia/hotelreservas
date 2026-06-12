@@ -5,7 +5,7 @@ Sistema web full-stack para gerenciar quartos e reservas de um hotel, desenvolvi
 ##  Tecnologias Utilizadas
 - **IDE:** Visual Studio Code (VS Code)
 - **Front-end:** HTML5, CSS3 e JavaScript
-- **Back-end:** Node.js / Express.js
+![alt text](image.png)
 - **ORM / Banco de Dados:** Prisma ORM com MySQL (`hotel_db`)
 - **Testes de API:** Insomnia 
 
@@ -18,7 +18,6 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
 }
 
 model Quartos {
